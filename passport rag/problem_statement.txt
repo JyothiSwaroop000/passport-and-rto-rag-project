@@ -1,0 +1,77 @@
+================================================================================
+RAG PROJECT PROBLEM STATEMENT SUBMISSION
+Link: https://forms.gle/wq87HKG8mpS3Qn676?utm_source=chatgpt.com
+================================================================================
+
+1. PROJECT TITLE:
+   CitizenDoc: AI-Powered Passport Seva & Parivahan RTO Rejection Preventer
+
+2. PROBLEM STATEMENT:
+   Every year, millions of Indian citizens visit Passport Seva Kendras (PSK), Post
+   Office Passport Seva Kendras (POPSK), and Regional Transport Offices (RTO) to
+   apply for fresh/reissue passports, Tatkaal services, driving license renewal,
+   or interstate vehicle transfer (NOC). However, a staggering percentage of
+   applicants face immediate application rejection and token cancellation at the
+   document verification counters due to nuanced statutory traps:
+   - Presenting simple notarized rent agreements on Rs 100 stamp paper instead of
+     Sub-Registrar registered agreements under Section 17 of the Registration Act.
+   - Submitting passbooks from urban cooperative banks or local credit societies
+     instead of Scheduled Commercial Banks with mandatory photo stamping.
+   - Character-by-character name and parent name spelling discrepancies across the
+     mandatory 3-document matrix under the Tatkaal scheme.
+   - Missing the strict 1-year driving license renewal cutoff under Section 15 of
+     the Motor Vehicles Act, which legally mandates a driving re-test.
+   - Illegible or missing pencil imprint of vehicle chassis numbers on Form 28
+     copies for interstate vehicle relocation.
+   Traditional keyword searches on government portals force citizens to comb through
+   multi-page gazette circulars. Conversely, generic non-grounded generative LLMs
+   frequently hallucinate obsolete rules, invent non-existent annexures, and provide
+   false assurances, causing citizens wasted days, lost fees, and severe frustration.
+
+3. PROPOSED SOLUTION:
+   Develop an end-to-end, progressive 4-stage Retrieval-Augmented Generation (RAG)
+   citizen compliance assistant that provides verified, counter-ready guidance.
+   The solution:
+   - Ingests official Ministry of External Affairs (MEA) Passport Seva manuals and
+     Ministry of Road Transport and Highways (MoRTH) Parivahan circulars.
+   - Preserves high-fidelity regulatory metadata (Issuing Authority, Service Category,
+     Rejection Risk Tier, Section, and Page Number).
+   - Indexes and retrieves semantic chunks using dense vector embeddings (FAISS
+     in-memory vector index and ChromaDB persistent vector database).
+   - Employs a neural Cross-Encoder Reranker (FlashRank) to eliminate distractor
+     passages and elevate specific statutory rejection rules to Rank #1.
+   - Synthesizes accurate compliance advisories citing explicit Authority, Section,
+     and Page numbers while strictly avoiding hallucinations.
+   - Features an interactive Counter Rejection Pre-Check auditor tool to screen
+     user document sets against known counter traps before visiting the office.
+   - Integrates LangSmith for end-to-end trace observability, token tracking, and
+     latency debugging.
+
+4. TARGET USERS:
+   - Passport Applicants: Seeking clear guidance on Normal vs. Tatkaal documentation,
+     acceptable address proofs, and Non-ECR status qualification.
+   - Drivers & Motorists: Verifying driving license renewal rules, Learner's to
+     Permanent DL timelines, and DigiLocker legal validity under Rule 139 CMVR.
+   - Vehicle Owners: Navigating interstate vehicle transfers, NOC (Form 28)
+     procedures, and ownership transfer timelines.
+   - Citizen Service Centers (CSC & Jan Seva Kendras): Assisting rural and
+     semi-urban citizens in preparing rejection-free application dossiers.
+
+5. DATA / DOCUMENTS TO BE USED:
+   - CitizenDoc Official Regulatory Compliance Handbook (7 core chapters covering):
+     1. Passport Seva Address Proof & Counter Rejection Traps
+     2. Date of Birth (DOB) Modern Reforms & Non-ECR Qualification Rules
+     3. Tatkaal Passport Application & Mandatory 3-Document Matrix
+     4. Passport Reissue, Name Change Procedures & Lost Passport Protocols
+     5. Driving License & Learner's License Rules under Parivahan Sarathi
+     6. DigiLocker & mParivahan Legal Validity (Rule 139 CMVR Enforcement)
+     7. RTO Interstate Vehicle Relocation & NOC Form 28 Guidelines
+   - Formats: High-structure Markdown/Text (.txt) and Multi-Page Document (.pdf).
+
+6. EXPECTED OUTPUT:
+   - Accurate, factual advisories directly derived from verified government circulars.
+   - Explicit citations indicating Issuing Authority, Chapter/Section, and Page Number.
+   - Prominent counter rejection risk alerts and actionable remedies.
+   - Interactive Streamlit web interface with real-time version comparisons (V1 -> V4),
+     pre-submission checklist tool, and automated benchmark evaluation metrics.
+================================================================================
